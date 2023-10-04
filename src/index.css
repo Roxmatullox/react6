@@ -1,0 +1,23 @@
+.products{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.add-product{
+  padding: 20px;
+
+}
+.add-product input{
+  margin-bottom: 20px;
+}
+
+.products-head{
+  padding: 20px;
+}
+
+.all-products{
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
