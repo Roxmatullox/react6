@@ -9,18 +9,8 @@ const AllProducts = ({products,DeleteProduct, EditProduct , search , category, c
   }
 
   if (check) {
-    let l = NewProducts.map((el)=>{
-      return el.price
-    })
-
-    l.map((el)=>{
-      NewProducts.map((el1)=>{
-        if (el1 == el) {
-          console.log(el);
-        }
-      })
-    })
-
+    NewProducts.sort((a,b)=>a.price - b.price)
+    console.log(NewProducts);
   }
   return (
     <Fragment >

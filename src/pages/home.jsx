@@ -11,6 +11,7 @@ import { v4 } from "uuid"
 const Home = () => {
   const [products , setProducts] = useState(JSON.parse(localStorage.getItem("products")) || [
     {
+      id:1,
       name:"Apple",
       price:1200,
       quantity:10000,
@@ -18,6 +19,7 @@ const Home = () => {
       category:"Food" 
     },
     {
+      id:2,
       name:"Banana",
       price:1200,
       quantity:10000,
@@ -25,6 +27,7 @@ const Home = () => {
       category:"Food" 
     },
     {
+      id:3,
       name:"Tv",
       price:1200,
       quantity:10000,
@@ -75,22 +78,23 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    let r
     let newProduct = {...product, id:v4()}
-    if (selected == null) {
-      r = [...products , newProduct ]
-    } else {
+    let r
+    if (selected === null) { 
+      console.log(newProduct);
+      r = [...products , newProduct]
+    } else if (selected !== null) {
       r = products.map((el)=>{
-        if (el.id === selected) {
-          return newProduct
-        } else {
+         if (el.id === selected) {
           return product
+        } else {
+          return el
         }
       })
     }
-
+    
     localStorage.setItem("products" , JSON.stringify(r))
-    setProducts(r)
+      setProducts(r)
       setProduct({
         name:"",
         price:"",
@@ -98,6 +102,7 @@ const Home = () => {
         description:"",
         category:"Technology", 
       })
+    
   }
 
 
